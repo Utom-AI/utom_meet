@@ -1,0 +1,197 @@
+{
+  "projectName": "Utom Meet",
+  "version": "1.0.0",
+  "description": "A secure and feature-rich video conferencing platform built with React, TypeScript, and Daily.co API",
+  "architecture": {
+    "frontend": {
+      "framework": "React with TypeScript",
+      "styling": "Styled Components",
+      "mainComponents": {
+        "Room": {
+          "path": "frontend/src/components/Room.tsx",
+          "description": "Main video conferencing room component",
+          "features": [
+            "Video/audio streaming",
+            "Screen sharing",
+            "Participant management",
+            "Meeting controls",
+            "Authorization checks",
+            "Responsive layout"
+          ],
+          "states": [
+            "callFrame - Manages Daily.co video call instance",
+            "isAudioOn - Controls microphone state",
+            "isVideoOn - Controls camera state",
+            "isScreenSharing - Tracks screen sharing status",
+            "isHost - Identifies if current user is meeting host",
+            "participants - Tracks all meeting participants",
+            "waitingParticipants - Manages users waiting to join",
+            "isSidebarOpen - Controls participant list visibility",
+            "isAuthorized - Verifies user's meeting access"
+          ]
+        },
+        "Controls": {
+          "description": "Meeting control interface",
+          "features": [
+            "Audio toggle",
+            "Video toggle",
+            "Screen sharing",
+            "Leave meeting",
+            "Participant list",
+            "Settings"
+          ]
+        }
+      }
+    },
+    "backend": {
+      "framework": "Flask (Python)",
+      "api": {
+        "endpoints": {
+          "/api/rooms": {
+            "methods": ["POST", "GET"],
+            "description": "Create and retrieve meeting rooms",
+            "parameters": {
+              "name": "Unique room identifier",
+              "properties": {
+                "exp": "Room expiration timestamp",
+                "enable_screenshare": "Allow screen sharing",
+                "enable_chat": "Enable chat feature",
+                "start_video_off": "Initial video state",
+                "start_audio_off": "Initial audio state",
+                "enable_recording": "Recording capabilities"
+              }
+            }
+          },
+          "/api/rooms/:roomName": {
+            "methods": ["GET"],
+            "description": "Retrieve specific room details"
+          }
+        }
+      },
+      "security": {
+        "features": [
+          "CORS protection",
+          "Environment variable configuration",
+          "API key management",
+          "User authorization"
+        ]
+      }
+    }
+  },
+  "features": {
+    "videoConferencing": {
+      "description": "Real-time video and audio communication",
+      "capabilities": [
+        "HD video streaming",
+        "Clear audio transmission",
+        "Background blur/effects (planned)",
+        "Bandwidth optimization",
+        "Multiple participant support"
+      ]
+    },
+    "screenSharing": {
+      "description": "Share screen content with participants",
+      "options": [
+        "Full screen",
+        "Application window",
+        "Browser tab"
+      ]
+    },
+    "security": {
+      "description": "Comprehensive security measures",
+      "features": [
+        "Meeting access control",
+        "Host privileges",
+        "Participant authorization",
+        "Secure room creation",
+        "Meeting expiration"
+      ]
+    },
+    "userInterface": {
+      "description": "Modern and intuitive interface",
+      "components": [
+        "Responsive layout",
+        "Dark theme",
+        "Floating controls",
+        "Participant sidebar",
+        "Status indicators",
+        "Tooltips"
+      ]
+    },
+    "participantManagement": {
+      "description": "Host controls for managing participants",
+      "capabilities": [
+        "Accept/reject participants",
+        "View participant list",
+        "Remove participants",
+        "Assign host privileges"
+      ]
+    }
+  },
+  "technicalDetails": {
+    "dependencies": {
+      "frontend": {
+        "react": "Latest version",
+        "typescript": "Latest version",
+        "styled-components": "For styling",
+        "@daily-co/daily-js": "Video API integration",
+        "axios": "HTTP client"
+      },
+      "backend": {
+        "flask": "Web framework",
+        "python-dotenv": "Environment management",
+        "requests": "HTTP client",
+        "flask-cors": "CORS handling"
+      }
+    },
+    "deployment": {
+      "frontend": "React development server on port 3000",
+      "backend": "Flask server on port 8000",
+      "database": "Not required - Daily.co handles state"
+    }
+  },
+  "security": {
+    "authentication": {
+      "description": "Multi-layer security system",
+      "methods": [
+        "Local storage for meeting details",
+        "Email-based participant verification",
+        "Host privileges verification",
+        "Room access control"
+      ]
+    },
+    "authorization": {
+      "description": "Role-based access control",
+      "roles": {
+        "host": {
+          "permissions": [
+            "Manage participants",
+            "End meeting",
+            "Control recording",
+            "Modify meeting settings"
+          ]
+        },
+        "participant": {
+          "permissions": [
+            "Join meeting",
+            "Control own audio/video",
+            "Share screen",
+            "View participant list"
+          ]
+        }
+      }
+    }
+  },
+  "futureEnhancements": {
+    "planned": [
+      "Chat functionality",
+      "Recording capabilities",
+      "Virtual backgrounds",
+      "Meeting scheduling",
+      "Email notifications",
+      "Mobile responsiveness improvements",
+      "Breakout rooms",
+      "Custom branding options"
+    ]
+  }
+} 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0066ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .info {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>You've been invited to a Utom Meet video call!</h2>
+    
+    <p>Hello,</p>
+    
+    <p><strong>{{ host_name }}</strong> has invited you to join a video meeting.</p>
+    
+    <div class="info">
+        <p><strong>Meeting Details:</strong></p>
+        <ul>
+            <li>Room Name: {{ room_name }}</li>
+            <li>Host: {{ host_name }}</li>
+            <li>Expires: {{ expires_at }}</li>
+        </ul>
+    </div>
+    
+    <a href="{{ join_url }}" class="button">Join Meeting</a>
+    
+    <p>Or copy and paste this URL into your browser:</p>
+    <p style="word-break: break-all;">{{ join_url }}</p>
+    
+    <p><small>This invitation will expire on {{ expires_at }}. You'll need to request a new invitation after this time.</small></p>
+    
+    <hr>
+    <p><small>This is an automated message from Utom Meet. Please do not reply to this email.</small></p>
+</body>
+</html> 
