@@ -148,4 +148,4 @@ Metadata stored includes:
 
 ## Contributing
 
-[Contribution Guidelines] 
+[Contribution Guidelines]
