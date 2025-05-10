@@ -8,7 +8,7 @@ import json
 from botocore.exceptions import ClientError
 
 # Initialize broker
-redis_broker = RedisBroker(host="localhost", port=6379)
+redis_broker = RedisBroker(host="37.27.215.123", port=6379)
 dramatiq.set_broker(redis_broker)
 
 # Initialize S3 client
